@@ -5,14 +5,14 @@ def main():
     import argparse
     from colorama import Fore, Style, init
     from .startup import LOGO_RAW
-    LOGO_COLOR = Fore.BLUE
+    LOGO_COLOR = Fore.CYAN
     def print_side_by_side(gap=4): 
         logo_width = max(len(line) for line in LOGO_RAW)
         lines = [ f"{Fore.MAGENTA}{'Made by: CaioLuizHermann on GitHub'}",
-        f"{Fore.BLUE}{'GitHub: https://github.com/CaioLuizHermann'}",
-        f"{Fore.BLUE}{'Contact: caio_luiz_hermann@hotmail.com'}",
+        f"{Fore.CYAN}{'GitHub: https://github.com/CaioLuizHermann'}",
+        f"{Fore.CYAN}{'Contact: caio_luiz_hermann@hotmail.com'}",
         f"{Fore.BLUE}{'-' * 50}",
-        f"""{Fore.BLUE}{"Type 'word-art --help' for more info"}""", ]
+        f"""{Fore.CYAN}{"Type 'word-art --help' for more info"}""", ]
         max_lines = max(len(LOGO_RAW), len(lines))
         for i in range(max_lines):
             rawline = LOGO_RAW[i] if i < len(LOGO_RAW) else ""
