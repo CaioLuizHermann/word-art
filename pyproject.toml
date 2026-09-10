@@ -7,14 +7,14 @@ name = "word-art"
 version = "0.1.0"
 description = "A program made for showing a selected image using custom text."
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 authors = [
     { name = "Caio Luiz Hermann (Kyoto)", email = "caio_luiz_hermann@hotmail.com" }
 ]
 dependencies = [
-    "requests",
+    "pygame-ce",
     "colorama>=0.4",
 ]
 
 [project.scripts]
-meu-comando = "meu_pacote.arquivo:funcao_principal"
+word-art = "word_art.main:main"

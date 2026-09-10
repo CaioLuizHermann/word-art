@@ -5,6 +5,7 @@ def main():
     import argparse
     from colorama import Fore, Style, init
     from .startup import LOGO_RAW
+    from pathlib import Path
     LOGO_COLOR = Fore.CYAN
     def print_side_by_side(gap=4): 
         logo_width = max(len(line) for line in LOGO_RAW)
@@ -22,25 +23,22 @@ def main():
             print(f"{colored_logo}{' ' * gap}{infopart}")
     print_side_by_side()
     parser = argparse.ArgumentParser(prog="word-art",description=("This program is used to show a selected image with custom text"))
-    parser.add_argument("-i","--image",default="./miku.png",required=False)
+    parser.add_argument("-i","--image",default=Path(__file__).parent / "miku.png",required=False)
     parser.add_argument("-t","--text",default="MIKU",required=False)
     args = parser.parse_args()
     input_path = str(args.image).strip('"')
     input_word = str(args.text).strip('"')
     try:
         img = pygame.image.load(input_path)
-    except:
+    except (pygame.error, FileNotFoundError):
         print("Error, invalid image path.")
         sys.exit()
     WIDTH, HEIGHT = 800, 600
-    COLS, ROWS = 60, 40
     FONT_SIZE = 30
     counter = 0
     FPS = 15
     input_word = input_word + " "
-    lenght = input_word.__len__()
     pos_x_1 = 10 
-    pos_y_1 = 10
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     img_surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
