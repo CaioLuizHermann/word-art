@@ -16,5 +16,8 @@ dependencies = [
     "colorama>=0.4",
 ]
 
+[tool.setuptools.packages]
+find = { where = ["."], include = ["word_art"] }
+
 [project.scripts]
 word-art = "word_art.main:main"
